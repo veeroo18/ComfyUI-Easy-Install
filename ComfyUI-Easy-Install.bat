@@ -7,7 +7,7 @@ call :set_colors
 
 :: Set arguments ::
 set "PIPargs=--no-cache-dir --no-warn-script-location --timeout=1000 --retries 200"
-set "CURLargs=--retry 200 --retry-all-errors"
+set "CURLargs=-k --retry 200 --retry-all-errors"
 
 :: Set local path only (temporarily) ::
 for /f "delims=" %%G in ('cmd /c "where git.exe 2>nul"') do (set "GIT_PATH=%%~dpG")
@@ -212,3 +212,4 @@ goto :eof
 :copy_files
 if exist ..\%~1 (if exist .\%~2 copy ..\%~1 .\%~2\>nul)
 goto :eof
+
